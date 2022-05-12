@@ -1,0 +1,55 @@
+ul{
+    list-style-type: none;
+}
+
+span{
+    color: red;
+    cursor: pointer;
+   /*  border: 1px solid red; */
+}
+
+#list li:first-child{
+    margin-top: 30px;
+} 
+
+.btn__info {
+    border: 1px solid #0b5ed7;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.btn__info:hover {
+    border: 1px solid #0b5ed7;
+    color: #FFFFFF;
+    background-color: #0b5ed7;
+    transition: all .3s;
+}
+
+.modals {
+    display: none;
+    text-align: center;
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 300px;
+    height: 100px;
+    background-color: rgb(218, 214, 214);
+}
+
+.modals__block {
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 300px;
+    height: 100px;
+    background-color: rgb(218, 214, 214);
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: rgb(218, 214, 214);
+}
+
+.row li {
+    cursor: pointer;
+}
