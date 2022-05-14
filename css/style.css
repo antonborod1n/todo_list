@@ -53,3 +53,16 @@ span{
 .row li {
     cursor: pointer;
 }
+
+.counter-box {
+    padding: 20px 0;
+}
+
+.counter {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.counter  span {
+    color: #0b5ed7;
+}
