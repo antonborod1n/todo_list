@@ -12,6 +12,7 @@ var noActiveSum = document.querySelector('.no-active');
 
 function createTask() {
     var inputValue = inputData.value;
+    
 
     if (inputData.value.trim() === '') {
         alert('Введите название');
@@ -51,19 +52,14 @@ function removeTask() {
 removeTask();
 
 function counterToDo() {
-    var active = 0;
-    var noActive = 0;
+    var liSum = itemLi.length;
+    var classSum = document.getElementsByClassName('line-through').length;
+    activeSum.innerHTML = liSum - classSum;
+    noActiveSum.innerHTML = classSum;
 
-    for (let key of itemLi) {
-        var contain = key.classList.contains('line-through');  
-        if (contain === true) {
-            noActiveSum.innerHTML = ++noActive;
-        } else {
-            activeSum.innerHTML = ++active;
-        } 
-    }
 }
-counterToDo();
+
+counterToDo(); 
 
 infoDev.addEventListener('click', function () {
     infoModal.classList.toggle('modals__block');
