@@ -45,8 +45,6 @@ function createTask() {
     counterToDo();
 }
 
-btnAddTask.onclick = createTask;
-
 function removeTask() {
     for (let spanItem of spans) {
         spanItem.onclick = function () {
@@ -64,7 +62,7 @@ function counterToDo() {
     var classSum = document.getElementsByClassName('line-through').length;
 
     //console.log(classSum);
-    
+
     activeSum.innerHTML = liSum - classSum;
     noActiveSum.innerHTML = classSum;
 }
@@ -108,3 +106,51 @@ function addContent() {
 }
 
 addContent();
+
+const getTodos = () => {
+    fetch('https://todo-app014.herokuapp.com/api/post?id=1')
+        .then(
+            res => res.json()
+        )
+        .then(
+            data => {
+                //console.log(data);
+                ulList.innerHTML = '';
+                data.forEach(element => {
+                    ulList.innerHTML += `
+                <li>${element.content}<span> DELETE</span><div>02.07.2022</div></li>
+                `;
+                });
+            }
+        );
+};
+
+getTodos();
+
+
+const postTodo = () => {
+    var inputValue = inputData.value;
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(
+            {
+                "title": "test",
+                "content": inputValue,
+                "user_id": 1
+            }
+        )
+    };
+    fetch('https://todo-app014.herokuapp.com/api/post', options).then(
+        res => res.json()
+    ).then(
+        data => console.log(data)
+    );
+};
+
+
+btnAddTask.addEventListener('click', postTodo);
+btnAddTask.addEventListener('click', createTask);
